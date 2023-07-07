@@ -1,0 +1,76 @@
+export default function Magics (Alpine) {
+  /**
+   * console.log() magic
+   */
+  Alpine.magic('log', () => consoleBase(console.log));
+
+  /**
+   * console.info() magic
+   */
+  Alpine.magic('info', () => consoleBase(console.info));
+
+  /**
+   * console.warn() magic
+   */
+  Alpine.magic('warn', () => consoleBase(console.warn));
+
+  /**
+   * console.error() magic
+   */
+  Alpine.magic('error', () => consoleBase(console.error));
+
+  /**
+   * console.table() magic
+   */
+  Alpine.magic('table', () => consoleBase(console.table));
+
+  /**
+   * console.assert() magic
+   */
+  Alpine.magic('assert', () => consoleBase(console.assert, true));
+
+  /**
+   * console.group() magic
+   */
+  Alpine.magic('group', () => consoleBase(console.group));
+
+  /**
+   * console.groupEnd() magic
+   */
+  Alpine.magic('groupEnd', () => () => console.groupEnd());
+
+  /**
+   * console.clear() magic
+   */
+  Alpine.magic('clear', () => () => console.clear());
+
+  /**
+   * @param fn - console function to use
+   * @param spread - if true, then we will use spread operator to log each item separately, useful for arrays and the assert function
+   * @returns {(function(*, *): void)|*}
+   */
+  const consoleBase = (fn, spread = false) => {
+    return (subject, clear) => {
+      /**
+       * if clear is true, then we need to clear console before logging
+       */
+      if (clear) {
+        console.clear();
+      }
+
+      if (Array.isArray(subject) || spread) {
+        /**
+         * if subject contains array, then we need to log each item separately
+         * @type {boolean}
+         */
+        const containsArray = subject.filter(item => Array.isArray(item)).length > 0;
+        if (containsArray || spread) {
+          fn(...subject);
+          return;
+        }
+      }
+
+      fn(subject);
+    };
+  };
+}
