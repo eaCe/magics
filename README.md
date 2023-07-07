@@ -1,0 +1,82 @@
+# Alpine.js Magic helpers
+
+This package provides some magic helpers for Alpine.js.
+
+## Installation
+
+Copy the magics.js file into your project and include it in your JavaScript bundle.
+
+## Usage
+
+```js
+import Alpine from 'alpinejs';
+import Magics from './magics';
+
+Alpine.plugin(Magics);
+window.Alpine = Alpine
+Alpine.start();
+```
+
+## Helpers
+
+Every log-helper accepts one or two arguments. 
+The first argument is the value to log. 
+The second argument is a boolean value to clear the console before logging, if set to true.
+You may pass an array of values as the first argument.
+
+### `$log`
+
+```html
+<div x-data="{ foo: 'bar' }">
+    <button @click="$log(foo)">Log</button>
+    <button @click="$log(['foo', ['foo', 'bar']], true)">Clear previous logs and log</button>
+</div>
+```
+
+### `$warn`
+
+```html
+<div x-data="{ foo: 'bar' }">
+    <button @click="$warn(foo)">Log</button>
+</div>
+```
+
+### `$error`
+
+```html
+<div x-data="{ foo: 'bar' }">
+    <button @click="$error(foo)">Log</button>
+</div>
+```
+
+### `$info`
+
+```html
+<div x-data="{ foo: 'bar' }">
+    <button @click="$info(foo)">Log</button>
+</div>
+```
+
+### `$table`
+
+```html
+<div x-data="">
+    <button @click="$table({ foo: 'bar', bar: 'foo'})">Log</button>
+</div>
+```
+
+### `$clear`
+
+```html
+<div x-data="">
+    <button @click="clear();$log('foo')">Clear previous logs and log</button>
+</div>
+```
+
+### `$group` and `$groupEnd`
+
+```html
+<div x-data="">
+    <button @click="$group('Groupname');$log('foo');$log('bar');$groupEnd()">Group logs</button>
+</div>
+```
