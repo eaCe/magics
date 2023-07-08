@@ -24,10 +24,14 @@ jobs:
         with:
           node-version: "16.x"
 
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
       - name: Install node modules
         run: |
-          npm install
-          sudo apt-get install xvfb
+          yarn install
 
       - name: Run tests
-        run: xvfb-run npm test --silent
+        run: yarn test

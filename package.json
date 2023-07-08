@@ -6,6 +6,6 @@
     "jest-environment-jsdom": "^29.6.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --silent"
   }
 }
