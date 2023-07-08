@@ -30,4 +30,4 @@ jobs:
           sudo apt-get install xvfb
 
       - name: Run tests
-        run: xvfb-run npm test
+        run: xvfb-run npm test --silent
