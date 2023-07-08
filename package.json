@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.7",
+    "alpinejs": "^3.12.3",
+    "jest": "^29.6.1",
+    "jest-environment-jsdom": "^29.6.1"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
