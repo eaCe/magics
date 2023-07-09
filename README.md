@@ -17,14 +17,14 @@ window.Alpine = Alpine
 Alpine.start();
 ```
 
-## Helpers
+## Log Helpers
 
 Every log-helper accepts one or two arguments. 
 The first argument is the value to log. 
 The second argument is a boolean value to clear the console before logging, if set to true.
 You may pass an array of values as the first argument.
 
-### `$log`
+### `$log()`
 
 ```html
 <div x-data="{ foo: 'bar' }">
@@ -33,7 +33,7 @@ You may pass an array of values as the first argument.
 </div>
 ```
 
-### `$warn`
+### `$warn()`
 
 ```html
 <div x-data="{ foo: 'bar' }">
@@ -41,7 +41,7 @@ You may pass an array of values as the first argument.
 </div>
 ```
 
-### `$error`
+### `$error()`
 
 ```html
 <div x-data="{ foo: 'bar' }">
@@ -49,7 +49,7 @@ You may pass an array of values as the first argument.
 </div>
 ```
 
-### `$info`
+### `$info()`
 
 ```html
 <div x-data="{ foo: 'bar' }">
@@ -57,7 +57,7 @@ You may pass an array of values as the first argument.
 </div>
 ```
 
-### `$table`
+### `$table()`
 
 ```html
 <div x-data="">
@@ -65,7 +65,7 @@ You may pass an array of values as the first argument.
 </div>
 ```
 
-### `$clear`
+### `$clear()`
 
 ```html
 <div x-data="">
@@ -73,10 +73,26 @@ You may pass an array of values as the first argument.
 </div>
 ```
 
-### `$group` and `$groupEnd`
+### `$group()` and `$groupEnd()`
 
 ```html
 <div x-data="">
     <button @click="$group('Groupname');$log('foo');$log('bar');$groupEnd()">Group logs</button>
 </div>
+```
+
+## Size Helpers
+
+### `$width` and `$width()`
+
+```html
+<div x-data x-text="$width"></div>
+<div x-data x-init="$width('200px')"></div>
+```
+
+### `$height` and `$height()`
+
+```html
+<div x-data x-text="$height"></div>
+<div x-data x-init="$width('200px')"></div>
 ```

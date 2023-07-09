@@ -73,4 +73,28 @@ export default function Magics (Alpine) {
       fn(subject);
     };
   };
+
+  /**
+   * get or set width of element
+   */
+  Alpine.magic('width', element => subject => {
+    if (subject) {
+      element.style.width = subject;
+      return;
+    }
+
+    return element.getBoundingClientRect().width;
+  });
+
+  /**
+   * get or set height of element
+   */
+  Alpine.magic('height', element => subject => {
+    if (subject) {
+      element.style.height = subject;
+      return;
+    }
+
+    return element.getBoundingClientRect().height;
+  });
 }
