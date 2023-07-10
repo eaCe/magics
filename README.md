@@ -94,5 +94,5 @@ You may pass an array of values as the first argument.
 
 ```html
 <div x-data x-text="$height"></div>
-<div x-data x-init="$width('200px')"></div>
+<div x-data x-init="$height('200px')"></div>
 ```
