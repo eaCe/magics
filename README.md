@@ -96,3 +96,13 @@ You may pass an array of values as the first argument.
 <div x-data x-text="$height"></div>
 <div x-data x-init="$height('200px')"></div>
 ```
+
+## Position Helpers
+
+### `$offset().top` and `$offset().left`
+
+```html
+<div x-data x-text="$offset().top"></div>
+<div x-data x-text="$offset().left"></div>
+```
+

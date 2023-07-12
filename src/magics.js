@@ -97,4 +97,19 @@ export default function Magics (Alpine) {
 
     return element.getBoundingClientRect().height;
   });
+
+  /**
+   * get the elements offset from the top of the document
+   */
+  Alpine.magic('offset', element => () => {
+    const rect = element.getBoundingClientRect();
+    const documentElement = document.documentElement;
+    const scrollY = window.pageYOffset || document.body.scrollTop;
+    const scrollX = window.pageXOffset || document.body.scrollLeft;
+
+    return {
+      top: rect.top + scrollY - documentElement.clientTop,
+      left: rect.left + scrollX - documentElement.clientLeft
+    };
+  });
 }
