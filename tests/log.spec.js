@@ -159,3 +159,14 @@ test('group and groupEnd > console.group() and console.groupEnd()', async () => 
 
   logSpy.mockRestore();
 });
+
+test('offset > offset.left and offset.top', async () => {
+  document.body.innerHTML = `<div x-data x-text="$offset().top + ', ' + $offset().left" id="foo" style="margin-top:250px"></div>`;
+
+  const div = document.getElementById('foo');
+  div.getBoundingClientRect = () => ({ top: 100, left: 200 });
+
+  mutateDom();
+
+  expect(document.getElementById('foo').innerHTML).toEqual('100, 200');
+});
