@@ -15,7 +15,7 @@ const mutateDom = () => Alpine.mutateDom(() => {
   Alpine.initTree(document.body);
 });
 
-test('log > console.log()', async () => {
+test('should log a message to console', async () => {
   const logSpy = jest.spyOn(global.console, 'log');
 
   document.body.innerHTML = `<div x-data="{title: 'foo'}" x-init="$log(title)"></div>`;
@@ -30,7 +30,7 @@ test('log > console.log()', async () => {
   logSpy.mockRestore();
 });
 
-test('log > console.log() with clear', async () => {
+test('should log a message to console with clear', async () => {
   const logSpy = jest.spyOn(global.console, 'log');
   const clearLogSpy = jest.spyOn(global.console, 'clear');
 
@@ -50,7 +50,7 @@ test('log > console.log() with clear', async () => {
   logSpy.mockRestore();
 });
 
-test('info > console.info()', async () => {
+test('should log a info message to console', async () => {
   const logSpy = jest.spyOn(global.console, 'info');
 
   document.body.innerHTML = `<div x-data="{title: 'foo'}" x-init="$info(title)"></div>`;
@@ -65,7 +65,7 @@ test('info > console.info()', async () => {
   logSpy.mockRestore();
 });
 
-test('warn > console.warn()', async () => {
+test('should log a warn message to console', async () => {
   const logSpy = jest.spyOn(global.console, 'warn');
 
   document.body.innerHTML = `<div x-data="{title: 'foo'}" x-init="$warn(title)"></div>`;
@@ -80,7 +80,7 @@ test('warn > console.warn()', async () => {
   logSpy.mockRestore();
 });
 
-test('error > console.error()', async () => {
+test('should log a error message to console', async () => {
   const logSpy = jest.spyOn(global.console, 'error');
 
   document.body.innerHTML = `<div x-data="{title: 'foo'}" x-init="$error(title)"></div>`;
@@ -95,7 +95,7 @@ test('error > console.error()', async () => {
   logSpy.mockRestore();
 });
 
-test('table > console.table()', async () => {
+test('should log a table to console', async () => {
   const logSpy = jest.spyOn(global.console, 'table');
 
   document.body.innerHTML = `<div x-data x-init="$table({ foo: 'bar', bar: 'foo'})"></div>`;
@@ -110,7 +110,7 @@ test('table > console.table()', async () => {
   logSpy.mockRestore();
 });
 
-test('assert true > console.assert()', async () => {
+test('should assert true', async () => {
   const logSpy = jest.spyOn(global.console, 'assert');
 
   document.body.innerHTML = `<div x-data x-init="$assert([true, 'Failed'])"></div>`;
@@ -124,7 +124,7 @@ test('assert true > console.assert()', async () => {
   logSpy.mockRestore();
 });
 
-test('assert false > console.assert()', async () => {
+test('should assert false and log error', async () => {
   const logSpy = jest.spyOn(global.console, 'assert');
 
   document.body.innerHTML = `<div x-data x-init="$assert([false, 'Failed'])"></div>`;
@@ -138,7 +138,7 @@ test('assert false > console.assert()', async () => {
   logSpy.mockRestore();
 });
 
-test('group and groupEnd > console.group() and console.groupEnd()', async () => {
+test('should group console logs', async () => {
   const logSpy = jest.spyOn(global.console, 'log');
   const groupSpy = jest.spyOn(global.console, 'group');
   const groupEndSpy = jest.spyOn(global.console, 'groupEnd');
@@ -160,8 +160,8 @@ test('group and groupEnd > console.group() and console.groupEnd()', async () => 
   logSpy.mockRestore();
 });
 
-test('offset > offset.left and offset.top', async () => {
-  document.body.innerHTML = `<div x-data x-text="$offset().top + ', ' + $offset().left" id="foo" style="margin-top:250px"></div>`;
+test('should output the element offset', async () => {
+  document.body.innerHTML = `<div x-data x-text="$offset().top + ', ' + $offset().left" id="foo"></div>`;
 
   const div = document.getElementById('foo');
   div.getBoundingClientRect = () => ({ top: 100, left: 200 });
@@ -169,4 +169,26 @@ test('offset > offset.left and offset.top', async () => {
   mutateDom();
 
   expect(document.getElementById('foo').innerHTML).toEqual('100, 200');
+});
+
+test('should get the element height', async () => {
+  document.body.innerHTML = `<div x-data x-text="$height" id="foo"></div>`;
+
+  const div = document.getElementById('foo');
+  div.getBoundingClientRect = () => ({ height: 150 });
+
+  mutateDom();
+
+  expect(document.getElementById('foo').innerHTML).toEqual('150');
+});
+
+test('should get the element width', async () => {
+  document.body.innerHTML = `<div x-data x-text="$width" id="foo"></div>`;
+
+  const div = document.getElementById('foo');
+  div.getBoundingClientRect = () => ({ width: 200 });
+
+  mutateDom();
+
+  expect(document.getElementById('foo').innerHTML).toEqual('200');
 });
