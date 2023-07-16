@@ -192,3 +192,17 @@ test('should get the element width', async () => {
 
   expect(document.getElementById('foo').innerHTML).toEqual('200');
 });
+
+test('should check whether the element has a specific class or not', async () => {
+  document.body.innerHTML = `<div x-data x-text="$hasClass('foo')" class="foo"></div>`;
+  mutateDom();
+  expect(document.querySelector('.foo').innerHTML).toEqual('true');
+
+  document.body.innerHTML = `<div x-data x-text="$hasClass('bar')" class="foo"></div>`;
+  mutateDom();
+  expect(document.querySelector('.foo').innerHTML).toEqual('false');
+
+  document.body.innerHTML = `<div x-data x-text="$hasClass()" class="foo"></div>`;
+  mutateDom();
+  expect(document.querySelector('.foo').innerHTML).toEqual('false');
+});

@@ -112,4 +112,15 @@ export default function Magics (Alpine) {
       left: rect.left + scrollX - documentElement.clientLeft
     };
   });
+
+  /**
+   * check if the element has a specific class
+   */
+  Alpine.magic('hasClass', element => subject => {
+    if (subject) {
+      return element.classList.contains(subject);
+    }
+
+    return false
+  });
 }

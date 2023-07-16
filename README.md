@@ -106,3 +106,11 @@ You may pass an array of values as the first argument.
 <div x-data x-text="$offset().left"></div>
 ```
 
+## Misc Helpers
+
+### `$hasClass()`
+
+```html
+<div x-data x-text="$hasClass('foo')" class="foo"></div>
+```
+
