@@ -114,3 +114,8 @@ You may pass an array of values as the first argument.
 <div x-data x-text="$hasClass('foo')" class="foo"></div>
 ```
 
+### `$trim()`
+
+```html
+<div x-data x-text="$trim(' foo ')"></div>
+```

@@ -206,3 +206,9 @@ test('should check whether the element has a specific class or not', async () =>
   mutateDom();
   expect(document.querySelector('.foo').innerHTML).toEqual('false');
 });
+
+test('should trim the string', async () => {
+  document.body.innerHTML = `<div x-data x-text="$trim('  foo  ')"></div>`;
+  mutateDom();
+  expect(document.querySelector('div').innerHTML).toEqual('foo');
+});

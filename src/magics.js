@@ -123,4 +123,15 @@ export default function Magics (Alpine) {
 
     return false
   });
+
+  /**
+   * trim the string
+   */
+  Alpine.magic('trim', () => subject => {
+    if (subject && typeof subject === 'string') {
+      return subject.trim();
+    }
+
+    return subject;
+  });
 }
