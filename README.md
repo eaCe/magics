@@ -119,3 +119,4 @@ You may pass an array of values as the first argument.
 ```html
 <div x-data x-text="$trim(' foo ')"></div>
 ```
+ 
