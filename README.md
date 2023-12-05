@@ -26,6 +26,8 @@ You may pass an array of values as the first argument.
 
 ### `$log()`
 
+Write a message to the console.
+
 ```html
 <div x-data="{ foo: 'bar' }">
     <button @click="$log(foo)">Log</button>
@@ -35,6 +37,8 @@ You may pass an array of values as the first argument.
 
 ### `$warn()`
 
+Write a warning message to the console.
+
 ```html
 <div x-data="{ foo: 'bar' }">
     <button @click="$warn(foo)">Log</button>
@@ -42,6 +46,8 @@ You may pass an array of values as the first argument.
 ```
 
 ### `$error()`
+
+Write an error message to the console.
 
 ```html
 <div x-data="{ foo: 'bar' }">
@@ -51,6 +57,8 @@ You may pass an array of values as the first argument.
 
 ### `$info()`
 
+Write an informational message to the console.
+
 ```html
 <div x-data="{ foo: 'bar' }">
     <button @click="$info(foo)">Log</button>
@@ -58,6 +66,8 @@ You may pass an array of values as the first argument.
 ```
 
 ### `$table()`
+
+Writes a table in the console view.
 
 ```html
 <div x-data="">
@@ -67,6 +77,8 @@ You may pass an array of values as the first argument.
 
 ### `$clear()`
 
+Clears the console.
+
 ```html
 <div x-data="">
     <button @click="clear();$log('foo')">Clear previous logs and log</button>
@@ -74,6 +86,8 @@ You may pass an array of values as the first argument.
 ```
 
 ### `$group()` and `$groupEnd()`
+
+Creates a new group in the console view.
 
 ```html
 <div x-data="">
@@ -85,12 +99,16 @@ You may pass an array of values as the first argument.
 
 ### `$width` and `$width()`
 
+Get or set the width of an element.
+
 ```html
 <div x-data x-text="$width"></div>
 <div x-data x-init="$width('200px')"></div>
 ```
 
 ### `$height` and `$height()`
+
+Get or set the height of an element.
 
 ```html
 <div x-data x-text="$height"></div>
@@ -101,6 +119,8 @@ You may pass an array of values as the first argument.
 
 ### `$offset().top` and `$offset().left`
 
+Get the offset of an element.
+
 ```html
 <div x-data x-text="$offset().top"></div>
 <div x-data x-text="$offset().left"></div>
@@ -110,13 +130,16 @@ You may pass an array of values as the first argument.
 
 ### `$hasClass()`
 
+Checks if an element has a class.
+
 ```html
 <div x-data x-text="$hasClass('foo')" class="foo"></div>
 ```
 
 ### `$trim()`
 
+Trims whitespace from the beginning and end of a string.
+
 ```html
 <div x-data x-text="$trim(' foo ')"></div>
 ```
- 
