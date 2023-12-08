@@ -16,7 +16,7 @@ Or copy the magics.js file from the src folder into your project and include it 
 
 ```js
 import Alpine from 'alpinejs';
-import Magics from './magics';
+import Magics from 'magics';
 
 Alpine.plugin(Magics);
 window.Alpine = Alpine
