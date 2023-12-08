@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Some magic helpers for Alpine.js",
   "homepage": "https://github.com/eaCe/magics",
+  "main": "src/magics.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/eaCe/magics"
