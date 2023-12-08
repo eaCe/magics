@@ -5,7 +5,7 @@
   "homepage": "https://github.com/eaCe/magics",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eaCe/magics",
+    "url": "https://github.com/eaCe/magics"
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
