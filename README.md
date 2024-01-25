@@ -10,6 +10,12 @@ This package provides some magic helpers for Alpine.js.
 npm i https://github.com/eaCe/magics
 ```
 
+### Yarn
+
+```bash
+yarn add https://github.com/eaCe/magics
+```
+
 Or copy the magics.js file from the src folder into your project and include it in your JavaScript bundle.
 
 ## Usage
