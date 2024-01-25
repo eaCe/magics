@@ -1,6 +1,0 @@
-babel.config.js
-jest.config.js
-webpack.mix.js
-yarn.lock
-tests
-.github
